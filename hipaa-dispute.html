@@ -1,1 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIPAA No Media Dispute System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+        }
 
+        .dark-navy-bg { background-color: #141C2F; }
+        .royal-blue-bg { background-color: #2563EB; }
+        .sky-blue-text { color: #60A5FA; }
+        .royal-blue-text { color: #2563EB; }
+        
+        .placeholder-box {
+            background-color: #2563EB;
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+            color: white;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .letter-container {
+            border: 2px solid #f3f4f6;
+            background-color: white;
+            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="max-w-4xl mx-auto bg-white shadow-2xl rounded-xl overflow-hidden border border-gray-200">
+        
+        <!-- Header Section -->
+        <header class="dark-navy-bg p-8 text-white flex justify-between items-center">
+            <div>
+                <h1 class="text-3xl font-bold tracking-tight">HIPAA No Media Dispute System</h1>
+                <p class="text-blue-200 mt-2 font-medium">Score Rise Kit | Professional Edition</p>
+            </div>
+            <!-- Simple SVG Shield Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-80"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </header>
+
+        <div class="p-8 space-y-8">
+            
+            <!-- Section: The No Media Logic -->
+            <section>
+                <div class="flex items-center gap-2 mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#141C2F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    <h2 class="text-xl font-bold" style="color: #141C2F;">The "No Media" Logic</h2>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-blue-500 italic text-gray-700 leading-relaxed">
+                    Credit bureaus are prohibited from reporting medical data without a physical, signed "Release of Information" (the media) that explicitly authorizes the disclosure of your private health records to third-party financial entities. If the bureau or collection agency cannot produce the original document containing your wet-ink signature, they have no legal standing to report the item and must delete it immediately.
+                </div>
+            </section>
+
+            <!-- Section: Letter Template -->
+            <section>
+                <div class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-4">
+                    <h2 class="text-xl font-bold" style="color: #141C2F;">Letter Template</h2>
+                    <button 
+                        onclick="handleDownload()"
+                        class="royal-blue-bg flex items-center justify-center gap-2 px-4 py-2 text-white rounded-lg font-semibold hover:opacity-90 transition-all shadow-md active:scale-95"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        Download .txt Template
+                    </button>
+                </div>
+                
+                <div class="letter-container rounded-xl p-8 relative">
+                    <div class="space-y-4 text-gray-800 leading-relaxed">
+                        <div class="flex gap-2">
+                            <span class="font-bold">Date:</span>
+                            <div class="placeholder-box">[Current Date]</div>
+                        </div>
+
+                        <div class="space-y-1">
+                            <p class="font-bold">To: [Credit Bureau Name]</p>
+                            <p>[Bureau Address]</p>
+                            <p>[City, State, Zip]</p>
+                        </div>
+
+                        <div class="pt-4 font-bold border-b pb-2 text-gray-900">
+                            RE: Formal Dispute & Request for Media Audit
+                        </div>
+
+                        <div class="space-y-4">
+                            <p>To Whom It May Concern,</p>
+                            
+                            <p>I am writing to formally dispute the following medical account listed on my credit report:</p>
+
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 py-2">
+                                <div class="space-y-1">
+                                    <label class="text-xs font-bold uppercase text-gray-400">Provider Name</label>
+                                    <div class="placeholder-box">[Medical Provider Name]</div>
+                                </div>
+                                <div class="space-y-1">
+                                    <label class="text-xs font-bold uppercase text-gray-400">Account Number</label>
+                                    <div class="placeholder-box">[Account Number]</div>
+                                </div>
+                                <div class="space-y-1">
+                                    <label class="text-xs font-bold uppercase text-gray-400">Agency</label>
+                                    <div class="placeholder-box">[Collection Agency]</div>
+                                </div>
+                            </div>
+
+                            <p class="font-semibold text-gray-900">
+                                I am requesting a full audit of the media associated with this account. If you cannot provide the original signed contract that authorizes the release of my private medical information, this item must be deleted immediately under HIPAA privacy standards.
+                            </p>
+
+                            <p>
+                                Under the HIPAA Privacy Rule, medical providers and their business associates are restricted from sharing protected health information without express written consent. If "the media" for this debt does not exist in your records, its continued reporting constitutes a violation of my federal privacy rights.
+                            </p>
+
+                            <p>Please provide proof of the aforementioned authorization within 30 days or remove the entry from my credit file.</p>
+
+                            <div class="pt-6">
+                                <p>Sincerely,</p>
+                                <div class="w-48 h-8 mt-2 rounded-sm opacity-10 mb-1 border-b border-gray-400 royal-blue-bg"></div>
+                                <p class="font-bold">[Your Legal Name]</p>
+                                <p class="text-sm text-gray-500">[Your Social Security Number]</p>
+                                <p class="text-sm text-gray-500">[Your Address]</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section: Important Notes -->
+            <section class="bg-blue-50 rounded-lg p-6">
+                <h3 class="font-bold mb-4 flex items-center gap-2" style="color: #141C2F;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    Important Notes
+                </h3>
+                <ul class="space-y-3">
+                    <li class="flex items-start gap-3 text-gray-700">
+                        <span class="sky-blue-text font-bold">•</span>
+                        <span>Ensure you include a copy of your <strong>Driver’s License</strong> and a <strong>Utility Bill</strong> to verify your identity.</span>
+                    </li>
+                    <li class="flex items-start gap-3 text-gray-700">
+                        <span class="sky-blue-text font-bold">•</span>
+                        <span>Send this letter via <strong>Certified Mail with Return Receipt Requested</strong> to track delivery.</span>
+                    </li>
+                    <li class="flex items-start gap-3 text-gray-700">
+                        <span class="sky-blue-text font-bold">•</span>
+                        <span>The bureaus have 30 days to respond. If they fail to provide the media, the law is on your side.</span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Execution Box -->
+            <div class="royal-blue-bg p-6 rounded-xl text-white shadow-lg flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <div class="bg-white/20 p-3 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                    </div>
+                    <div>
+                        <span class="block text-xs uppercase tracking-widest opacity-80 font-bold">Execution Step</span>
+                        <span class="text-xl font-black">CRITICAL: Send this letter only to the Credit Bureaus, NOT the hospital.</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="bg-gray-100 p-4 text-center text-xs text-gray-400 border-t">
+            © <span id="year"></span> Score Rise Kit. All rights reserved. Professional Dispute Documentation.
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        function handleDownload() {
+            const templateText = `
+DATE: [Current Date]
+
+TO: [Credit Bureau Name]
+[Bureau Address]
+[City, State, Zip]
+
+RE: Formal Dispute & Request for Media Audit
+
+To Whom It May Concern,
+
+I am writing to formally dispute the following medical account listed on my credit report:
+
+Provider Name: [Medical Provider Name]
+Account Number: [Account Number]
+Collection Agency: [Collection Agency]
+
+I am requesting a full audit of the media associated with this account. If you cannot provide the original signed contract that authorizes the release of my private medical information, this item must be deleted immediately under HIPAA privacy standards.
+
+Under the HIPAA Privacy Rule, medical providers and their business associates are restricted from sharing protected health information without express written consent. If "the media" for this debt does not exist in your records, its continued reporting constitutes a violation of my federal privacy rights.
+
+Please provide proof of the aforementioned authorization within 30 days or remove the entry from my credit file.
+
+Sincerely,
+
+__________________________
+[Your Legal Name]
+[Your Social Security Number]
+[Your Address]
+            `.trim();
+
+            const element = document.createElement("a");
+            const file = new Blob([templateText], { type: 'text/plain' });
+            element.href = URL.createObjectURL(file);
+            element.download = "HIPAA_Dispute_Letter_Template.txt";
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+        }
+    </script>
+</body>
+</html>
