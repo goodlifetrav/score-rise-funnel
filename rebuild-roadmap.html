@@ -1,1 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Score Rise 24-Hour Rebuild Roadmap</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
 
+        .brand-navy { color: #141C2F; }
+        .bg-brand-navy { background-color: #141C2F; }
+        .brand-royal { color: #2563EB; }
+        .bg-brand-royal { background-color: #2563EB; }
+        .brand-sky { color: #60A5FA; }
+        .bg-brand-sky { background-color: #60A5FA; }
+        .border-brand-sky { border-color: #60A5FA; }
+
+        .card-shadow {
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        }
+        
+        .copy-notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #141C2F;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            display: none;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="max-w-4xl mx-auto">
+        <!-- Header -->
+        <header class="mb-12 text-center border-b border-slate-200 pb-8">
+            <div class="inline-block px-4 py-1 rounded-full bg-blue-50 text-blue-600 font-bold text-xs uppercase tracking-widest mb-4">
+                Priority Protocol
+            </div>
+            <h1 class="text-4xl md:text-5xl font-black mb-4 brand-navy">
+                Score Rise 24-Hour Rebuild Roadmap
+            </h1>
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+                Execution-focused credit restoration. Complete these 4 phases within the next 24 hours while your dispute letters are in processing.
+            </p>
+        </header>
+
+        <!-- Phase 1: Utilization -->
+        <section class="bg-white rounded-2xl card-shadow border border-slate-100 p-6 md:p-8 mb-8">
+            <div class="flex items-center gap-3 mb-2">
+                <span class="flex items-center justify-center w-8 h-8 rounded-full font-bold text-white text-sm bg-brand-sky">1</span>
+                <h2 class="text-2xl font-bold uppercase tracking-tight brand-navy">Phase 1: The Utilization Hack</h2>
+            </div>
+            <p class="text-slate-500 font-medium ml-11 mb-8">30% of your total score calculation.</p>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-4">
+                <div class="space-y-4">
+                    <h3 class="font-bold text-lg flex items-center gap-2 brand-navy">
+                        <i data-lucide="zap" class="brand-sky w-5 h-5"></i>
+                        The 1% Rule
+                    </h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        FICO models reward "low but active" usage. To trigger a massive score jump, pay your cards down so only **1% of the limit** shows on your statement closing date.
+                    </p>
+                    <div class="bg-blue-50 p-4 rounded-xl border-l-4 border-blue-400">
+                        <p class="text-sm font-medium text-blue-800 italic">
+                            "If your limit is $1,000, let exactly $10 report. This signals perfect management."
+                        </p>
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full border-collapse">
+                        <thead>
+                            <tr class="bg-slate-50">
+                                <th class="p-3 text-left text-xs font-bold uppercase tracking-wider text-slate-400 border border-brand-sky">Card Name</th>
+                                <th class="p-3 text-left text-xs font-bold uppercase tracking-wider text-slate-400 border border-brand-sky">Limit</th>
+                                <th class="p-3 text-left text-xs font-bold uppercase tracking-wider text-slate-400 border border-brand-sky">Closing Date</th>
+                                <th class="p-3 text-left text-xs font-bold uppercase tracking-wider text-slate-400 border border-brand-sky">Target (1%)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="p-3 border border-slate-100 text-slate-300 italic text-sm">[Bank 1]</td>
+                                <td class="p-3 border border-slate-100 text-slate-300 italic text-sm">[$0.00]</td>
+                                <td class="p-3 border border-slate-100 text-slate-300 italic text-sm">[00/00]</td>
+                                <td class="p-3 border border-slate-100 text-slate-300 italic text-sm">[$0.00]</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 border border-slate-100 text-slate-300 italic text-sm">[Bank 2]</td>
+                                <td class="p-3 border border-slate-100 text-slate-300 italic text-sm">[$0.00]</td>
+                                <td class="p-3 border border-slate-100 text-slate-300 italic text-sm">[00/00]</td>
+                                <td class="p-3 border border-slate-100 text-slate-300 italic text-sm">[$0.00]</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phase 2: AU Protocol -->
+        <section class="bg-white rounded-2xl card-shadow border border-slate-100 p-6 md:p-8 mb-8">
+            <div class="flex items-center gap-3 mb-2">
+                <span class="flex items-center justify-center w-8 h-8 rounded-full font-bold text-white text-sm bg-brand-sky">2</span>
+                <h2 class="text-2xl font-bold uppercase tracking-tight brand-navy">Phase 2: The Authorized User Strategy</h2>
+            </div>
+            <p class="text-slate-500 font-medium ml-11 mb-8">Inherit history to boost your average age of accounts.</p>
+
+            <div class="grid md:grid-cols-5 gap-8">
+                <div class="md:col-span-3 space-y-6">
+                    <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 relative">
+                        <div class="absolute -top-3 left-6 px-3 py-1 rounded bg-white border border-slate-200 text-xs font-bold uppercase tracking-widest text-slate-500">
+                            Simplified Script
+                        </div>
+                        <p id="auScript" class="text-lg text-slate-800 leading-relaxed pt-2">
+                            "Hey [Name], I'm working on my credit foundation. Would you be open to adding me as an AU to your [Bank Name] card? You don't have to give me the physical card or the number—I just need the reporting history."
+                        </p>
+                        <button onclick="copyScript()" class="mt-4 flex items-center gap-2 text-sm font-bold uppercase tracking-wider brand-royal transition-colors hover:text-blue-700">
+                            <i data-lucide="copy" class="w-4 h-4"></i> Copy Script
+                        </button>
+                    </div>
+                </div>
+
+                <div class="md:col-span-2">
+                    <div class="p-6 rounded-2xl text-white h-full flex flex-col justify-center bg-brand-royal">
+                        <div class="flex items-center gap-2 mb-3">
+                            <i data-lucide="alert-circle" class="text-blue-200 w-5 h-5"></i>
+                            <span class="font-bold uppercase text-xs tracking-widest">Pro Tip</span>
+                        </div>
+                        <p class="font-medium text-blue-50">
+                            Ensure the card has <span class="underline decoration-blue-300">zero late payments</span> and is at least <span class="underline decoration-blue-300 text-white font-bold">2 years old</span>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phase 3: Builders -->
+        <section class="bg-white rounded-2xl card-shadow border border-slate-100 p-6 md:p-8 mb-8">
+            <div class="flex items-center gap-3 mb-2">
+                <span class="flex items-center justify-center w-8 h-8 rounded-full font-bold text-white text-sm bg-brand-sky">3</span>
+                <h2 class="text-2xl font-bold uppercase tracking-tight brand-navy">Phase 3: No-Credit-Check Builders</h2>
+            </div>
+            <p class="text-slate-500 font-medium ml-11 mb-8">Instantly add 3 new positive primary accounts.</p>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="flex flex-col p-6 rounded-2xl border border-slate-100 hover:border-blue-200 transition-all bg-white group">
+                    <div class="w-12 h-12 rounded-full mb-4 flex items-center justify-center bg-blue-50 group-hover:bg-blue-600 transition-colors">
+                        <i data-lucide="credit-card" class="text-blue-600 group-hover:text-white transition-colors w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2 brand-navy">Self</h4>
+                    <p class="text-sm text-slate-500 mb-6 flex-grow leading-relaxed">Builds credit by saving for your future in a CD.</p>
+                    <button class="w-full py-3 px-4 rounded-lg font-semibold text-white bg-brand-royal flex items-center justify-center gap-2 hover:opacity-90">
+                        [Access Builder Tool] <i data-lucide="external-link" class="w-4 h-4"></i>
+                    </button>
+                </div>
+                <!-- Card 2 -->
+                <div class="flex flex-col p-6 rounded-2xl border border-slate-100 hover:border-blue-200 transition-all bg-white group">
+                    <div class="w-12 h-12 rounded-full mb-4 flex items-center justify-center bg-blue-50 group-hover:bg-blue-600 transition-colors">
+                        <i data-lucide="credit-card" class="text-blue-600 group-hover:text-white transition-colors w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2 brand-navy">Chime</h4>
+                    <p class="text-sm text-slate-500 mb-6 flex-grow leading-relaxed">Secured card that uses your own money with 0% interest.</p>
+                    <button class="w-full py-3 px-4 rounded-lg font-semibold text-white bg-brand-royal flex items-center justify-center gap-2 hover:opacity-90">
+                        [Access Builder Tool] <i data-lucide="external-link" class="w-4 h-4"></i>
+                    </button>
+                </div>
+                <!-- Card 3 -->
+                <div class="flex flex-col p-6 rounded-2xl border border-slate-100 hover:border-blue-200 transition-all bg-white group">
+                    <div class="w-12 h-12 rounded-full mb-4 flex items-center justify-center bg-blue-50 group-hover:bg-blue-600 transition-colors">
+                        <i data-lucide="credit-card" class="text-blue-600 group-hover:text-white transition-colors w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2 brand-navy">Ava</h4>
+                    <p class="text-sm text-slate-500 mb-6 flex-grow leading-relaxed">Digital credit line for reporting & utilization padding.</p>
+                    <button class="w-full py-3 px-4 rounded-lg font-semibold text-white bg-brand-royal flex items-center justify-center gap-2 hover:opacity-90">
+                        [Access Builder Tool] <i data-lucide="external-link" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phase 4: Shield -->
+        <section class="bg-white rounded-2xl card-shadow border border-slate-100 p-6 md:p-8 mb-8">
+            <div class="flex items-center gap-3 mb-2">
+                <span class="flex items-center justify-center w-8 h-8 rounded-full font-bold text-white text-sm bg-brand-sky">4</span>
+                <h2 class="text-2xl font-bold uppercase tracking-tight brand-navy">Phase 4: The 0% Late Payment Shield</h2>
+            </div>
+            <p class="text-slate-500 font-medium ml-11 mb-8">Secure your progress. One late payment can drop you 100 points.</p>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4 p-4 rounded-xl border border-slate-50 hover:bg-slate-100 transition-colors cursor-pointer" onclick="toggleCheck(this)">
+                        <i data-lucide="check-circle-2" class="brand-sky w-6 h-6"></i>
+                        <span class="font-medium text-slate-700">Set all active cards to "Minimum Auto-Pay"</span>
+                    </div>
+                    <div class="flex items-center gap-4 p-4 rounded-xl border border-slate-50 hover:bg-slate-100 transition-colors cursor-pointer" onclick="toggleCheck(this)">
+                        <i data-lucide="check-circle-2" class="brand-sky w-6 h-6"></i>
+                        <span class="font-medium text-slate-700">Activate "Low Balance" alerts at $50</span>
+                    </div>
+                </div>
+                <div class="bg-brand-navy rounded-2xl p-6 text-white flex flex-col justify-center items-center text-center">
+                    <i data-lucide="shield-check" class="mb-4 text-blue-400 w-12 h-12"></i>
+                    <h4 class="text-xl font-bold mb-2">Automated Defense</h4>
+                    <p class="text-slate-400 text-sm">Human error is the #1 killer of credit scores. Remove the human from the equation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Audit -->
+        <section class="bg-brand-navy rounded-3xl p-8 md:p-12 text-white relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-blue-600 rounded-full blur-[120px] opacity-20 -mr-32 -mt-32"></div>
+            
+            <div class="relative z-10">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-8 mb-12">
+                    <div>
+                        <h2 class="text-3xl font-black mb-2">Score Audit Tracker</h2>
+                        <p class="text-slate-400">Track your trajectory over the next 30 days.</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <i data-lucide="target" class="brand-sky w-8 h-8"></i>
+                        <div class="text-right">
+                            <div class="text-xs font-bold uppercase text-slate-500">Mission Status</div>
+                            <div id="statusText" class="text-xl font-bold text-blue-400">In Execution Phase</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center backdrop-blur-sm">
+                        <div class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">Starting Score</div>
+                        <div class="text-4xl font-black tracking-tighter brand-sky">[____]</div>
+                    </div>
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center backdrop-blur-sm">
+                        <div class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">7-Day Update</div>
+                        <div class="text-4xl font-black tracking-tighter brand-sky">[____]</div>
+                    </div>
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center backdrop-blur-sm">
+                        <div class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">30-Day Goal</div>
+                        <div class="text-4xl font-black tracking-tighter brand-sky">[____]</div>
+                    </div>
+                </div>
+
+                <div class="bg-white/5 p-6 rounded-2xl border border-white/10 flex flex-col md:flex-row items-center gap-6">
+                    <div class="flex-grow">
+                        <p class="text-slate-300 italic text-lg leading-relaxed">
+                            "Results start with execution. Complete these 4 phases within the next 24 hours while your dispute letters are in the mail. Speed is your greatest asset."
+                        </p>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <button onclick="markComplete(this)" class="bg-brand-royal px-8 py-4 rounded-xl font-black uppercase tracking-widest text-sm transition-all hover:scale-105 active:scale-95 shadow-xl shadow-blue-900/40">
+                            Mark Phase 1 Complete
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="mt-12 text-center text-slate-400 text-sm">
+            &copy; 2025 Score Rise Kit | Prepared for Travis John
+        </footer>
+    </div>
+
+    <div id="copyToast" class="copy-notification">Script copied to clipboard!</div>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        function copyScript() {
+            const text = document.getElementById('auScript').innerText;
+            const el = document.createElement('textarea');
+            el.value = text;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            
+            const toast = document.getElementById('copyToast');
+            toast.style.display = 'block';
+            setTimeout(() => { toast.style.display = 'none'; }, 2000);
+        }
+
+        function toggleCheck(el) {
+            const icon = el.querySelector('i');
+            if (el.style.opacity === '0.5') {
+                el.style.opacity = '1';
+                icon.style.color = '#60A5FA';
+            } else {
+                el.style.opacity = '0.5';
+                icon.style.color = '#10b981';
+            }
+        }
+
+        function markComplete(btn) {
+            btn.innerHTML = 'Phase Complete ✓';
+            btn.style.backgroundColor = '#10b981';
+            document.getElementById('statusText').innerText = 'Phase 1 Active';
+            document.getElementById('statusText').style.color = '#10b981';
+        }
+    </script>
+</body>
+</html>
