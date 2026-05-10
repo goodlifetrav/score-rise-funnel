@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Metro 2 Audit Worksheet - Score Rise Kit</title>
+    <title>Metro 2 Audit Worksheet | Score Rise Kit</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
@@ -48,7 +48,6 @@
             padding: 12px 8px;
         }
 
-        /* Success Message styling */
         #toast {
             visibility: hidden;
             min-width: 250px;
@@ -68,25 +67,16 @@
 
         #toast.show {
             visibility: visible;
-            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
             animation: fadein 0.5s, fadeout 0.5s 2.5s;
         }
 
-        @-webkit-keyframes fadein { from {top: 0; opacity: 0;} to {top: 30px; opacity: 1;} }
         @keyframes fadein { from {top: 0; opacity: 0;} to {top: 30px; opacity: 1;} }
-        @-webkit-keyframes fadeout { from {top: 30px; opacity: 1;} to {top: 0; opacity: 0;} }
         @keyframes fadeout { from {top: 30px; opacity: 1;} to {top: 0; opacity: 0;} }
 
         @media print {
-            .no-print {
-                display: none;
-            }
-            body {
-                background-color: white;
-            }
-            .shadow-xl {
-                box-shadow: none;
-            }
+            .no-print { display: none; }
+            body { background-color: white; }
+            .shadow-xl { box-shadow: none; }
         }
     </style>
 </head>
@@ -95,7 +85,6 @@
     <div id="toast">Data copied! Paste into Google Sheets (Ctrl+V).</div>
 
     <div class="max-w-6xl mx-auto bg-white shadow-xl rounded-xl overflow-hidden border border-gray-200">
-        <!-- Header -->
         <header class="header-bg p-8 text-white flex flex-col md:flex-row justify-between items-center gap-4">
             <div>
                 <h1 class="text-3xl font-bold tracking-tight">Score Rise Kit</h1>
@@ -107,7 +96,6 @@
             </div>
         </header>
 
-        <!-- Instructions -->
         <section class="p-6 bg-blue-50 border-b border-blue-100">
             <h2 class="text-sm font-bold uppercase mb-2 accent-blue flex items-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
@@ -115,11 +103,10 @@
             </h2>
             <p class="text-sm text-gray-600 leading-relaxed">
                 Compare your reports. Under Metro 2 standards, data must be 100% accurate. Use the checkboxes below to flag violations. 
-                <strong>New:</strong> Fill this out digitally and click <span class="text-emerald-600 font-bold">"Copy for Google Sheets"</span> at the bottom to export your audit for your records.
+                <strong>New:</strong> Fill this out digitally and click <span class="text-emerald-600 font-bold">"Copy for Google Sheets"</span> at the bottom to export.
             </p>
         </section>
 
-        <!-- Audit Table -->
         <div class="overflow-x-auto">
             <table class="w-full audit-table text-left border-collapse" id="auditTable">
                 <thead>
@@ -133,12 +120,10 @@
                     </tr>
                 </thead>
                 <tbody id="auditRows">
-                    <!-- JavaScript will populate 10 rows for better export capacity -->
-                </tbody>
+                    </tbody>
             </table>
         </div>
 
-        <!-- Footer Section -->
         <div class="p-8 grid grid-cols-1 md:grid-cols-2 gap-8 bg-gray-50">
             <section>
                 <h3 class="font-bold text-lg mb-4 flex items-center gap-2">
@@ -164,10 +149,6 @@
                         <span>Date: Check "Date of Last Activity" consistency.</span>
                     </li>
                 </ul>
-                <div class="mt-6 p-4 bg-gray-50 rounded border border-dashed border-gray-300">
-                    <p class="text-[10px] text-gray-500 uppercase font-bold tracking-wider mb-2">Pro Tip</p>
-                    <p class="text-xs text-gray-600 italic">Pasting into Google Sheets preserves the structure, making it easy to attach to digital dispute files.</p>
-                </div>
             </section>
         </div>
 
@@ -176,45 +157,31 @@
         </footer>
     </div>
 
-    <!-- Floating Action Buttons -->
     <div class="no-print fixed bottom-8 right-8 flex flex-col gap-3">
-        <button onclick="copyToSheets()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-2 transition-all hover:scale-105 active:scale-95">
+        <button onclick="copyToSheets()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-2 transition-all">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
             Copy for Google Sheets
         </button>
-        <button onclick="window.print()" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-2 transition-all hover:scale-105 active:scale-95">
+        <button onclick="window.print()" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-2 transition-all">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
             Print Worksheet
         </button>
     </div>
 
-    <!-- Hidden element for clipboard helper -->
-    <textarea id="clipboardHelper" class="fixed -top-full -left-full opacity-0"></textarea>
+    <textarea id="clipboardHelper" style="position: absolute; left: -9999px;"></textarea>
 
     <script>
-        // Set current date
         document.getElementById('currentDate').innerText = new Date().toLocaleDateString();
 
-        // Dynamically generate rows for cleaner code
         const tbody = document.getElementById('auditRows');
         for(let i = 0; i < 10; i++) {
             const tr = document.createElement('tr');
             tr.innerHTML = `
-                <td>
-                    <input type="text" class="data-name w-full border-b border-gray-200 focus:outline-none focus:border-blue-400 p-1 text-sm font-medium" placeholder="Account Name / #">
-                </td>
-                <td class="text-center">
-                    <input type="checkbox" class="data-status checkbox-custom">
-                </td>
-                <td class="text-center">
-                    <input type="checkbox" class="data-balance checkbox-custom">
-                </td>
-                <td class="text-center">
-                    <input type="checkbox" class="data-date checkbox-custom">
-                </td>
-                <td class="text-center">
-                    <input type="checkbox" class="data-history checkbox-custom">
-                </td>
+                <td><input type="text" class="data-name w-full border-b border-gray-200 focus:outline-none focus:border-blue-400 p-1 text-sm font-medium" placeholder="Account Name / #"></td>
+                <td class="text-center"><input type="checkbox" class="data-status checkbox-custom"></td>
+                <td class="text-center"><input type="checkbox" class="data-balance checkbox-custom"></td>
+                <td class="text-center"><input type="checkbox" class="data-date checkbox-custom"></td>
+                <td class="text-center"><input type="checkbox" class="data-history checkbox-custom"></td>
                 <td>
                     <select class="data-action text-xs border rounded p-1 w-full bg-gray-50">
                         <option>Pending</option>
@@ -228,39 +195,31 @@
         }
 
         function copyToSheets() {
-            // Header for spreadsheet
             let tsv = "Account Name\tStatus Violation\tBalance Violation\tDate Violation\tPayment History Violation\tAction Needed\n";
-            
             const rows = document.querySelectorAll('#auditRows tr');
             rows.forEach(row => {
-                const name = row.querySelector('.data-name').value || "";
-                const status = row.querySelector('.data-status').checked ? "ERROR" : "CLEAN";
-                const balance = row.querySelector('.data-balance').checked ? "ERROR" : "CLEAN";
-                const date = row.querySelector('.data-date').checked ? "ERROR" : "CLEAN";
-                const history = row.querySelector('.data-history').checked ? "ERROR" : "CLEAN";
-                const action = row.querySelector('.data-action').value;
-                
-                // Only include rows that have a name filled out
-                if (name.trim() !== "") {
+                const name = row.querySelector('.data-name').value;
+                if (name && name.trim() !== "") {
+                    const status = row.querySelector('.data-status').checked ? "ERROR" : "CLEAN";
+                    const balance = row.querySelector('.data-balance').checked ? "ERROR" : "CLEAN";
+                    const date = row.querySelector('.data-date').checked ? "ERROR" : "CLEAN";
+                    const history = row.querySelector('.data-history').checked ? "ERROR" : "CLEAN";
+                    const action = row.querySelector('.data-action').value;
                     tsv += `${name}\t${status}\t${balance}\t${date}\t${history}\t${action}\n`;
                 }
             });
 
-            // Append notes at bottom
             const notes = document.getElementById('errorNotes').value;
-            if (notes.trim() !== "") {
-                tsv += `\nFactual Error Notes:\n${notes}`;
-            }
+            if (notes.trim() !== "") tsv += `\nFactual Error Notes:\n${notes}`;
 
             const helper = document.getElementById('clipboardHelper');
             helper.value = tsv;
             helper.select();
             document.execCommand('copy');
 
-            // Show Toast
             const toast = document.getElementById("toast");
             toast.className = "show";
-            setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+            setTimeout(() => { toast.className = ""; }, 3000);
         }
     </script>
 </body>
