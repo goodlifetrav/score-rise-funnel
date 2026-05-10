@@ -3,106 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secondary Bureau Data Blackout System</title>
+    <title>Bureau Blackout System</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
         body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #141C2F; }
-        .bureau-header { color: #141C2F; }
-        .action-btn { background-color: #2563EB; transition: transform 0.2s; }
-        .action-btn:active { transform: scale(0.98); }
-        .sky-accent { color: #60A5FA; }
-        .script-box { border-left: 4px solid #60A5FA; }
+        .action-btn { background-color: #2563EB; transition: all 0.2s; }
+        .action-btn:hover { background-color: #1d4ed8; transform: translateY(-1px); }
+        .script-card { border-left: 4px solid #60A5FA; background-color: #f1f5f9; }
     </style>
 </head>
-<body class="py-12 px-4 md:px-8">
+<body class="py-10 px-4">
 
-    <div class="max-w-4xl mx-auto">
-        <header class="text-center mb-12">
-            <h1 class="text-3xl md:text-4xl font-extrabold bureau-header mb-6">Secondary Bureau Data Blackout System</h1>
-            <div class="bg-white p-6 rounded-xl border-l-8 text-left shadow-sm max-w-2xl mx-auto border-[#141C2F]">
-                <p class="text-slate-600 leading-relaxed">
-                    Freezing these bureaus <strong>cuts off the data supply</strong> to the Big 3. Legally, if they can't verify the data, they must remove the item.
-                </p>
-            </div>
+    <div class="max-w-3xl mx-auto">
+        <header class="text-center mb-10">
+            <h1 class="text-3xl font-extrabold mb-4">Secondary Bureau Blackout</h1>
+            <p class="text-slate-600">Freeze these bureaus to stop data verification.</p>
         </header>
 
-        <div id="bureau-cards-container" class="space-y-8"></div>
-
-        <footer class="mt-16 p-8 rounded-2xl border-2 border-dashed border-slate-300 bg-white text-center">
-            <h2 class="text-2xl font-bold bureau-header mb-4">Strategy Check</h2>
-            <p class="text-slate-700">Complete all freezes <span class="text-red-600 font-bold">BEFORE</span> mailing Letter 1.</p>
-        </footer>
+        <div id="bureau-list" class="space-y-6">
+            </div>
     </div>
 
-    <div id="toast" class="fixed bottom-5 right-5 bg-slate-800 text-white px-6 py-3 rounded-lg shadow-xl translate-y-24 transition-transform duration-300">
-        Script copied!
+    <div id="toast" class="fixed bottom-5 right-5 bg-black text-white px-6 py-3 rounded-lg opacity-0 transition-opacity duration-300 pointer-events-none">
+        Copied to clipboard!
     </div>
 
     <script>
         const bureaus = [
             {
                 name: "LEXISNEXIS",
-                mission: "Tracks public records, liens, and judgments.",
                 url: "https://consumer.risk.lexisnexis.com/freeze",
                 script: "I am requesting a security freeze on my consumer report under the FCRA. My info: [Full Name], [SSN], [Address]."
             },
             {
-                name: "SAGESTREAM (INVISIS)",
-                mission: "Tracks credit card applications and retail performance.",
+                name: "SAGESTREAM",
                 url: "https://www.sagestreamllc.com/security-freeze/",
                 script: "I am requesting a security freeze on my SageStream/Invisis file immediately. Info: [Full Name], [SSN], [Address]."
             },
             {
                 name: "INNOVIS",
-                mission: "The '4th Bureau' used for identity verification.",
                 url: "https://www.innovis.com/securityFreeze/index",
                 script: "Please place a security freeze on my Innovis credit report. Details: [Full Name], [SSN], [Address]."
             },
             {
                 name: "ARS",
-                mission: "Used by high-limit credit card issuers.",
                 url: "https://www.ars-consumertools.com/",
                 script: "I am exercising my rights under the FCRA to freeze my report with ARS. Info: [Full Name], [SSN], [Address]."
-            },
-            {
-                name: "CORELOGIC TELETRACK",
-                mission: "Tracks subprime lending and payday loans.",
-                url: "https://www.teletrack.com/consumers/freeze/",
-                script: "I request a security freeze on my CoreLogic Teletrack file. Info: [Full Name], [SSN], [Address]."
             }
         ];
 
-        function renderCards() {
-            const container = document.getElementById('bureau-cards-container');
-            container.innerHTML = bureaus.map((b, index) => `
-                <div class="bg-white border-2 border-slate-100 rounded-xl shadow-sm overflow-hidden p-6">
-                    <h3 class="text-2xl font-extrabold mb-2">${b.name}</h3>
-                    <p class="text-slate-500 italic mb-6">${b.mission}</p>
-                    <a href="${b.url}" target="_blank" class="action-btn text-white px-8 py-3 rounded-lg font-bold inline-flex items-center mb-6 shadow-lg">
-                        Access Freeze Portal
+        function render() {
+            const container = document.getElementById('bureau-list');
+            container.innerHTML = bureaus.map((b, i) => `
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <h2 class="text-xl font-bold mb-4">${b.name}</h2>
+                    <a href="${b.url}" target="_blank" class="action-btn text-white px-6 py-2 rounded-lg font-bold inline-block mb-4 text-sm">
+                        Open Freeze Portal
                     </a>
-                    <div class="script-box bg-slate-50 p-4 rounded-r-lg">
+                    <div class="script-card p-4 rounded-r-lg">
                         <div class="flex justify-between items-center mb-2">
-                            <span class="text-xs font-bold text-slate-400">THE SCRIPT</span>
-                            <button onclick="copyScript('${index}')" class="text-xs font-bold sky-accent">COPY</button>
+                            <span class="text-xs font-bold text-slate-400 uppercase">The Script</span>
+                            <button onclick="copyText(${i})" class="text-xs font-bold text-blue-600 hover:underline">COPY SCRIPT</button>
                         </div>
-                        <p id="txt-${index}" class="text-slate-700 text-sm font-medium">"${b.script}"</p>
+                        <p class="text-sm text-slate-700 leading-relaxed italic">"${b.script}"</p>
                     </div>
                 </div>
             `).join('');
         }
 
-        function copyScript(index) {
+        async function copyText(index) {
             const text = bureaus[index].script;
-            navigator.clipboard.writeText(text).then(() => {
-                const toast = document.getElementById('toast');
-                toast.classList.remove('translate-y-24');
-                setTimeout(() => toast.classList.add('translate-y-24'), 3000);
-            });
+            try {
+                await navigator.clipboard.writeText(text);
+                showToast();
+            } catch (err) {
+                // Fallback for older browsers
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand("copy");
+                document.body.removeChild(textArea);
+                showToast();
+            }
         }
 
-        window.onload = renderCards;
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.style.opacity = '1';
+            setTimeout(() => { toast.style.opacity = '0'; }, 2000);
+        }
+
+        window.onload = render;
     </script>
 </body>
 </html>
