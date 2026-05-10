@@ -1,1 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secondary Bureau Data Blackout System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
 
+        .bureau-header { color: #141C2F; }
+        .action-btn { background-color: #2563EB; transition: transform 0.2s; }
+        .action-btn:active { transform: scale(0.98); }
+        .sky-accent { color: #60A5FA; }
+        .execution-box { background-color: #f0f9ff; border-top: 1px solid #e0f2fe; }
+        .script-box { border-left: 4px solid #60A5FA; }
+        
+        /* Custom scrollbar for better UI */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+    </style>
+</head>
+<body class="py-12 px-4 md:px-8">
+
+    <div class="max-w-4xl mx-auto">
+        <!-- Header Section -->
+        <header class="text-center mb-12">
+            <div class="inline-block p-4 bg-white rounded-full shadow-sm mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-extrabold bureau-header mb-6">Secondary Bureau Data Blackout System</h1>
+            
+            <div class="bg-white p-6 rounded-xl border-l-8 text-left shadow-sm max-w-2xl mx-auto border-[#141C2F]">
+                <h2 class="text-sm font-bold uppercase tracking-widest bureau-header mb-2 underline decoration-sky-400">The "Why"</h2>
+                <p class="text-slate-600 leading-relaxed">
+                    Freezing these secondary bureaus <strong>cuts off the data supply</strong> to the Big 3 (Experian, TransUnion, Equifax). When the Big 3 attempt to verify your disputes and find the source data is blacked out, they are legally required to remove the items.
+                </p>
+            </div>
+        </header>
+
+        <!-- Bureau Cards Container -->
+        <div id="bureau-cards-container" class="space-y-8">
+            <!-- Cards will be injected here by JS or written out if static is preferred -->
+        </div>
+
+        <!-- Closing Summary -->
+        <footer class="mt-16 p-8 rounded-2xl border-2 border-dashed border-slate-300 bg-white text-center">
+            <div class="flex justify-center space-x-6 mb-8">
+                <div class="flex flex-col items-center">
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold mb-2 shadow-md bg-[#2563EB]">1</div>
+                    <span class="text-[10px] font-bold uppercase text-slate-500">Blackout</span>
+                </div>
+                <div class="pt-4 text-slate-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold mb-2 shadow-md bg-[#141C2F] opacity-40">2</div>
+                    <span class="text-[10px] font-bold uppercase text-slate-400">Letter 1</span>
+                </div>
+            </div>
+            
+            <h2 class="text-2xl font-bold bureau-header mb-4">Data Blackout Strategy</h2>
+            <div class="text-left inline-block max-w-lg space-y-4">
+                <div class="flex items-start">
+                    <span class="sky-accent mr-3 mt-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                    <p class="text-slate-700">Complete all freezes <span class="text-red-600 font-bold">BEFORE</span> mailing Letter 1.</p>
+                </div>
+                <div class="flex items-start">
+                    <span class="sky-accent mr-3 mt-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                    <p class="text-slate-700">Wait for confirmation numbers to be generated and stored.</p>
+                </div>
+                <div class="flex items-start">
+                    <span class="sky-accent mr-3 mt-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                    <p class="text-slate-700">This forces the Big 3 to rely on their own internal (outdated) records, leading to higher deletion rates.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-5 right-5 bg-slate-800 text-white px-6 py-3 rounded-lg shadow-xl translate-y-20 transition-transform duration-300 z-50">
+        Script copied to clipboard!
+    </div>
+
+    <script>
+        const bureaus = [
+            {
+                name: "LEXISNEXIS",
+                mission: "Tracks public records, liens, judgments, and historical address data.",
+                script: "I am requesting a security freeze on my consumer report under the Fair Credit Reporting Act. My information is: [Full Name], [SSN], [Address]."
+            },
+            {
+                name: "SAGESTREAM (INVISIS)",
+                mission: "Tracks credit card applications and secondary credit performance data.",
+                script: "I am requesting a security freeze on my SageStream/Invisis consumer file immediately under the FCRA. Information: [Full Name], [SSN], [Address]."
+            },
+            {
+                name: "INNOVIS",
+                mission: "Functions as the '4th Bureau' used for identity verification and credit monitoring.",
+                script: "Please place a security freeze on my Innovis credit report to prevent unauthorized access. My details: [Full Name], [SSN], [Address]."
+            },
+            {
+                name: "ARS (ADVANCED RESOLUTION SERVICES)",
+                mission: "Used primarily by high-limit credit card issuers and retail banks.",
+                script: "I am exercising my rights under the FCRA to freeze my consumer report with ARS. My information: [Full Name], [SSN], [Address]."
+            },
+            {
+                name: "CORELOGIC TELETRACK",
+                mission: "Tracks subprime lending, payday loans, and rent-to-own history.",
+                script: "I request a security freeze on my CoreLogic Teletrack consumer file. Personal info: [Full Name], [SSN], [Address]."
+            }
+        ];
+
+        function renderCards() {
+            const container = document.getElementById('bureau-cards-container');
+            container.innerHTML = bureaus.map((b, index) => `
+                <div class="bg-white border-2 border-slate-100 rounded-xl shadow-sm overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-extrabold bureau-header mb-2">${b.name}</h3>
+                        <p class="text-slate-500 italic mb-6 flex items-center">
+                            <span class="sky-accent mr-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+                            </span>
+                            ${b.mission}
+                        </p>
+
+                        <button class="action-btn text-white px-8 py-3 rounded-lg font-bold flex items-center mb-6 shadow-lg shadow-blue-200">
+                            <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                            Access Freeze Portal
+                        </button>
+
+                        <div class="script-box bg-slate-50 p-4 rounded-r-lg relative group">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-bold uppercase text-slate-400 tracking-widest flex items-center">
+                                    <svg class="mr-1" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                    The Script (Copy/Paste)
+                                </span>
+                                <button onclick="copyScript('${b.script}')" class="text-xs font-bold sky-accent hover:underline decoration-2">COPY SCRIPT</button>
+                            </div>
+                            <p id="script-${index}" class="text-slate-700 text-sm leading-relaxed font-medium">
+                                "${b.script}"
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Execution Box -->
+                    <div class="execution-box p-4 md:flex items-center justify-between">
+                        <div class="flex items-center mb-4 md:mb-0">
+                            <span class="text-[10px] font-black sky-accent tracking-tighter mr-3">STATUS:</span>
+                            <span class="bg-white border text-[10px] font-bold px-3 py-1 rounded-full text-slate-400">PENDING</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="border-b-2 border-slate-200 pb-1 min-w-[120px]">
+                                <span class="block text-[9px] font-bold text-slate-400 uppercase">Date Requested</span>
+                                <span class="text-xs text-slate-300 italic">__/__/____</span>
+                            </div>
+                            <div class="border-b-2 border-slate-200 pb-1 min-w-[120px]">
+                                <span class="block text-[9px] font-bold text-slate-400 uppercase">Confirmation #</span>
+                                <span class="text-xs text-slate-300 italic">____________</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function copyScript(text) {
+            const el = document.createElement('textarea');
+            el.value = text;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            
+            showToast();
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.remove('translate-y-20');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20');
+            }, 3000);
+        }
+
+        window.onload = renderCards;
+    </script>
+</body>
+</html>
