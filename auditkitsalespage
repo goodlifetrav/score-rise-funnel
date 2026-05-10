@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional-Grade Credit Audit & Dispute System | Score Rise Kit</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: '#141C2F',
+                        royal: '#2563EB',
+                        sky: '#60A5FA',
+                        coolgray: '#94A3B8',
+                        lightgray: '#F8FAFC',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .crisp-card { border: 1px solid #E2E8F0; transition: all 0.2s ease-in-out; }
+        .crisp-card:hover { border-color: #60A5FA; transform: translateY(-2px); }
+        .value-tag { background: rgba(96, 165, 250, 0.1); color: #2563EB; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; }
+        .bundle-icon { filter: drop-shadow(0 10px 15px rgba(20, 28, 47, 0.1)); }
+        
+        /* FAQ Accordion Logic */
+        .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+        .faq-item.active .faq-content { max-height: 200px; }
+        .faq-item.active svg { transform: rotate(180deg); }
+
+        /* Pulsating Button Animation */
+        @keyframes pulse-red {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+            70% { transform: scale(1.1); box-shadow: 0 0 0 20px rgba(239, 68, 68, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+        .animate-pulse-red {
+            animation: pulse-red 2s infinite;
+        }
+
+        /* Aura Glow Animation */
+        @keyframes aura-glow {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.3); }
+        }
+        .aura-halo {
+            animation: aura-glow 2s infinite;
+        }
+    </style>
+</head>
+<body class="bg-white font-sans text-navy antialiased">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-navy text-white py-3 px-4 text-center text-sm sm:text-base font-medium">
+        <p>We emailed you the <strong>Credit War Map FREE download</strong>. It will arrive in the next 5 minutes. In the meantime, check out how to fast track your results below.</p>
+    </div>
+
+    <!-- Section 1: Hero (Updated Mobile Stack Order) -->
+    <section class="pt-16 pb-20 lg:pt-28 lg:pb-24 px-4 overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <!-- Grid setup to handle mobile ordering and desktop layout -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-x-20 gap-y-8 items-center">
+                
+                <!-- 1. Headline (Top on mobile, Top-Left on desktop) -->
+                <div class="order-1 text-center lg:text-left">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-navy mb-6 leading-tight">
+                        The Credit Secret: Use This Legal Trick to Wipe Your Credit Clean for Anything You Need.
+                    </h1>
+                    <p class="text-xl text-coolgray leading-relaxed max-w-xl mx-auto lg:mx-0">
+                        Stop letting banks win. Whether you want a new home, a fast car, or cheaper insurance, this simple plan forces the bureaus to clean your report fast.
+                    </p>
+                </div>
+
+                <!-- 2. Video Player (Middle on mobile, Right side on desktop) -->
+                <div class="order-2 lg:row-span-2 relative flex justify-center">
+                    <div class="relative w-[90%] sm:max-w-[320px] mx-auto">
+                        <!-- Glow effect -->
+                        <div class="absolute -inset-4 bg-royal/10 rounded-[40px] blur-2xl"></div>
+                        
+                        <!-- Video Element Wrapper -->
+                        <div class="relative aspect-[9/16] bg-black rounded-[32px] overflow-hidden shadow-2xl border-4 border-white/10 cursor-pointer group" onclick="toggleHeroVideo()">
+                            <video 
+                                id="heroVideo"
+                                src="https://assets.cdn.filesafe.space/KwwkraurvDvoGAxIEIJI/media/69caa15fb862d7b107217283.mp4" 
+                                class="w-full h-full object-cover"
+                                loop 
+                                playsinline>
+                            </video>
+                            
+                            <!-- High-Urgency Animated Overlay -->
+                            <div id="playOverlay" class="absolute inset-0 flex flex-col justify-between bg-black text-center p-6 transition-opacity duration-300">
+                                <!-- Top Text -->
+                                <div class="mt-8">
+                                    <h2 class="text-[#FF3D00] text-2xl font-black uppercase italic leading-tight drop-shadow-lg">
+                                        This video will soon be removed!
+                                    </h2>
+                                </div>
+
+                                <!-- Central Pulsating Play Button -->
+                                <div class="relative flex items-center justify-center">
+                                    <!-- Radiating Aura Halo -->
+                                    <div class="absolute w-32 h-32 bg-red-600 rounded-full aura-halo blur-xl pointer-events-none"></div>
+                                    
+                                    <!-- Main Pulsating Button -->
+                                    <div class="relative w-24 h-24 bg-red-600 rounded-full flex items-center justify-center shadow-[0_0_50px_rgba(239,68,68,0.5)] animate-pulse-red border-4 border-white/20">
+                                        <svg class="w-12 h-12 text-white fill-current translate-x-1" viewBox="0 0 24 24">
+                                            <path d="M7 6v12l10-6z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+
+                                <!-- Bottom Text -->
+                                <div class="mb-10">
+                                    <p class="text-white text-[10px] font-black uppercase tracking-[0.15em] leading-relaxed opacity-90">
+                                        THIS IS YOUR LAST CHANCE TO WATCH IT ALL THE WAY TO THE END
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. CTA Section (Bottom on mobile, Bottom-Left on desktop) -->
+                <div class="order-3 text-center lg:text-left space-y-6">
+                    <div class="space-y-6">
+                        <a href="https://scorerisekit.com/audit-kit-checkout" class="inline-block bg-royal hover:bg-blue-700 text-white font-bold text-xl py-5 px-12 rounded-lg shadow-xl transition-all duration-300 transform hover:-translate-y-1 text-center w-full sm:w-auto">
+                            Get the Secret Kit - Only $47
+                        </a>
+                        
+                        <p class="text-red-600 font-bold text-lg italic animate-pulse">
+                            Hurry! Only 7 kits left at this price today.
+                        </p>
+                        
+                        <!-- Trust Bar Row -->
+                        <div class="flex items-center justify-center lg:justify-start space-x-2 text-sm text-navy font-semibold">
+                            <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                            <span>Join 1,250+ people using the Score Rise system.</span>
+                        </div>
+
+                        <div class="flex items-center justify-center lg:justify-start space-x-4 text-xs font-bold text-coolgray uppercase tracking-widest">
+                            <span>One-time payment</span>
+                            <span class="text-sky">•</span>
+                            <span>Lifetime Access</span>
+                            <span class="text-sky">•</span>
+                            <span>No monthly fees</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. THE TRUST BAR -->
+    <div class="bg-gray-100 border-y border-gray-200 py-10">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-coolgray text-xs font-bold uppercase tracking-widest mb-6 italic">The laws we use have been featured on:</p>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-50 grayscale font-black text-2xl">
+                <span>ABC</span>
+                <span>NBC</span>
+                <span>FOX</span>
+                <span>CBS</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION: Emotional Story/Quote -->
+    <section class="py-16 bg-white border-t border-gray-100">
+        <div class="max-w-5xl mx-auto px-4">
+            <!-- Quote Box -->
+            <div class="bg-lightgray p-8 sm:p-10 rounded-3xl border-l-8 border-royal shadow-sm mb-12">
+                <p class="text-xl sm:text-2xl text-navy font-bold italic leading-relaxed">
+                    "I feel like I'm constantly being penalized for mistakes I made years ago. Every time I apply for something, I get this pit in my stomach waiting for the denial letter. It's a constant weight."
+                </p>
+            </div>
+
+            <!-- Short Story Content -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                <div>
+                    <h2 class="text-3xl font-extrabold text-navy leading-tight mb-6">
+                        The 'Hidden' Tax of <span class="text-royal">Bad Credit</span>
+                    </h2>
+                    <p class="text-coolgray leading-relaxed mb-6">
+                        We've all been there: The perfect car, the perfect apartment, or the perfect home loan. The salesman is all smiles until he runs your credit.
+                    </p>
+                    <p class="text-coolgray leading-relaxed">
+                        Then comes the "punishment"—an interest rate so high it feels like a second mortgage, or worse, a flat-out rejection. It’s not just a number; it’s a leash holding your life back.
+                    </p>
+                </div>
+                <div class="bg-navy text-white p-8 rounded-3xl shadow-xl">
+                    <p class="text-sky font-bold uppercase tracking-widest text-xs mb-4">The Breaking Point</p>
+                    <p class="text-lg font-medium leading-relaxed mb-6">
+                        "I was trapped: paying double for car insurance, rejected for decent apartments, and stuck with high-fee secured cards. I just wanted to be treated like a normal adult."
+                    </p>
+                    <div class="h-px bg-white/10 w-full mb-6"></div>
+                    <p class="text-sm text-gray-400">
+                        Stop letting your past dictate your future. The Score Rise system was built to break the leash.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: Daily Struggle & Bad Advice -->
+    <section class="py-16 bg-lightgray border-y border-gray-100">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                
+                <!-- Struggle Column -->
+                <div>
+                    <h3 class="text-2xl font-bold text-navy mb-8 flex items-center">
+                        <span class="bg-red-100 text-red-600 p-2 rounded-lg mr-3">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path></svg>
+                        </span>
+                        The Daily Struggle
+                    </h3>
+                    <ul class="space-y-5">
+                        <li class="flex items-start">
+                            <p class="text-coolgray leading-snug">
+                                <strong class="text-navy block text-lg mb-1">Scary Math</strong> 
+                                Paying way too much for cars and loans every month.
+                            </p>
+                        </li>
+                        <li class="flex items-start">
+                            <p class="text-coolgray leading-snug">
+                                <strong class="text-navy block text-lg mb-1">Old Bills</strong> 
+                                Seeing old collections pop up out of nowhere.
+                            </p>
+                        </li>
+                        <li class="flex items-start">
+                            <p class="text-coolgray leading-snug">
+                                <strong class="text-navy block text-lg mb-1">Getting Denied</strong> 
+                                Feeling embarrassed when a bank tells you "No."
+                            </p>
+                        </li>
+                        <li class="flex items-start">
+                            <p class="text-coolgray leading-snug">
+                                <strong class="text-navy block text-lg mb-1">Score Fear</strong> 
+                                Being too scared to even check your credit score.
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Bad Advice Column -->
+                <div>
+                    <h3 class="text-2xl font-bold text-navy mb-8 flex items-center">
+                        <span class="bg-royal/10 text-royal p-2 rounded-lg mr-3">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+                        </span>
+                        Bad Advice I Tried
+                    </h3>
+                    <ul class="space-y-5">
+                        <li class="flex items-start">
+                            <p class="text-coolgray leading-snug">
+                                <strong class="text-navy block text-lg mb-1">Bad Cards</strong> 
+                                Using "secured" cards that just took my money in fees.
+                            </p>
+                        </li>
+                        <li class="flex items-start">
+                            <p class="text-coolgray leading-snug">
+                                <strong class="text-navy block text-lg mb-1">Talking to Collectors</strong> 
+                                Calling them only made the debt look new and fresh.
+                            </p>
+                        </li>
+                        <li class="flex items-start">
+                            <p class="text-coolgray leading-snug">
+                                <strong class="text-navy block text-lg mb-1">Wasting Time</strong> 
+                                Sending basic letters that got ignored for weeks.
+                            </p>
+                        </li>
+                        <li class="flex items-start">
+                            <p class="text-coolgray leading-snug">
+                                <strong class="text-navy block text-lg mb-1">Junk Mail</strong> 
+                                Applying for "pre-approved" offers that hurt my score.
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: The Secret Discovery -->
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-navy leading-tight">
+                    I Found a Big Secret That <br class="hidden sm:block"/> <span class="text-royal">Changed Everything</span>
+                </h2>
+                <p class="mt-4 text-xl text-coolgray max-w-2xl mx-auto">
+                    I stopped listening to blogs. I talked to the experts who actually make the credit rules.
+                </p>
+            </div>
+
+            <div class="lg:grid lg:grid-cols-12 lg:gap-12 items-center">
+                <!-- Visual Column -->
+                <div class="lg:col-span-5 mb-12 lg:mb-0">
+                    <div class="relative bg-lightgray rounded-3xl p-8 border border-gray-100 shadow-inner">
+                        <svg class="w-full h-auto" viewBox="0 0 200 200">
+                            <circle cx="100" cy="100" r="80" fill="none" stroke="#E2E8F0" stroke-width="20" />
+                            <path d="M100 20 A80 80 0 0 1 180 100" fill="none" stroke="#2563EB" stroke-width="20" />
+                            <path d="M180 100 A80 80 0 0 1 100 180" fill="none" stroke="#60A5FA" stroke-width="20" />
+                            <text x="100" y="105" text-anchor="middle" font-family="Inter" font-weight="800" font-size="20" fill="#141C2F">FICO SCORE</text>
+                            <text x="100" y="125" text-anchor="middle" font-family="Inter" font-weight="500" font-size="10" fill="#94A3B8">THE SECRET CODE</text>
+                        </svg>
+                        <div class="mt-8 text-center bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                            <p class="text-xs text-coolgray font-bold uppercase tracking-widest mb-1">Score Jump</p>
+                            <p class="text-3xl font-extrabold text-navy">+103 Points</p>
+                            <p class="text-xs font-medium text-royal">In just 28 days</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content Column -->
+                <div class="lg:col-span-7">
+                    <div class="bg-white p-6 sm:p-10 rounded-3xl border border-gray-100 shadow-xl relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-sky/5 rounded-full -mr-16 -mt-16"></div>
+                        <h4 class="text-xl font-bold text-navy mb-8 flex items-center">
+                            <span class="w-2 h-8 bg-sky rounded-full mr-4"></span>
+                            3 Truths the Banks Don't Tell You:
+                        </h4>
+                        
+                        <div class="space-y-8">
+                            <div class="flex items-start">
+                                <div class="bg-sky/10 text-royal font-black text-xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 mr-6">1</div>
+                                <div>
+                                    <h5 class="text-lg font-bold text-navy mb-1">The Right Order Matters</h5>
+                                    <p class="text-coolgray">Most people fix the wrong things first. You have to do them in a special order to win.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-sky/10 text-royal font-black text-xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 mr-6">2</div>
+                                <div>
+                                    <h5 class="text-lg font-bold text-navy mb-1">The 48-Hour Trick</h5>
+                                    <p class="text-coolgray">There is a secret way to make your score jump up fast in just two days.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-sky/10 text-royal font-black text-xl w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 mr-6">3</div>
+                                <div>
+                                    <h5 class="text-lg font-bold text-navy mb-1">Make Errors Disappear</h5>
+                                    <p class="text-coolgray">You can actually talk to banks and make them erase bad items forever.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-10 p-6 bg-navy text-white rounded-2xl italic text-sm">
+                            "Most people are stuck in credit jail because they follow rules that the banks made up to keep you there."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: The "Savings" Comparison -->
+    <section class="py-24 bg-lightgray border-y border-gray-100">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-navy mb-4">Why Spend Thousands on an Agency?</h2>
+            <p class="text-coolgray mb-12">Traditional credit repair is designed to keep you paying every single month.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-gray-200 border border-gray-200 rounded-2xl overflow-hidden shadow-xl">
+                <div class="bg-white p-10">
+                    <h4 class="text-sm font-bold text-coolgray mb-8 uppercase tracking-widest text-center">Credit Repair Agency</h4>
+                    <ul class="space-y-6 text-left">
+                        <li class="flex items-start text-red-500 font-medium">
+                            <svg class="w-5 h-5 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path></svg>
+                            <span>$150/month subscription fee</span>
+                        </li>
+                        <li class="flex items-start text-coolgray italic">
+                            <svg class="w-5 h-5 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path></svg>
+                            <span>Intentional slow results to extend billing</span>
+                        </li>
+                        <li class="flex items-start text-coolgray italic">
+                            <svg class="w-5 h-5 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path></svg>
+                            <span>Generic templates the bureaus ignore</span>
+                        </li>
+                        <li class="mt-8 border-t border-gray-100 pt-6">
+                            <p class="text-xs text-coolgray uppercase font-bold tracking-tighter">Total Yearly Cost</p>
+                            <p class="text-2xl font-bold text-navy">$1,800.00+</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white p-10 relative">
+                    <div class="absolute top-0 right-0 bg-royal text-white text-[10px] font-bold px-4 py-2 rounded-bl-xl uppercase tracking-widest">Recommended</div>
+                    <h4 class="text-sm font-bold text-royal mb-8 uppercase tracking-widest text-center">The Audit Kit</h4>
+                    <ul class="space-y-6 text-left">
+                        <li class="flex items-start text-navy font-bold">
+                            <svg class="w-5 h-5 text-sky mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span>$47 One-time investment</span>
+                        </li>
+                        <li class="flex items-start text-navy font-medium">
+                            <svg class="w-5 h-5 text-sky mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span>Factual Metro 2 Strategic Auditing</span>
+                        </li>
+                        <li class="flex items-start text-navy font-medium">
+                            <svg class="w-5 h-5 text-sky mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span>Instant setup & full system control</span>
+                        </li>
+                        <li class="mt-8 border-t border-gray-100 pt-6">
+                            <p class="text-xs text-royal uppercase font-bold tracking-tighter">Total Yearly Cost</p>
+                            <p class="text-2xl font-bold text-navy">$47.00</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: What's Inside (Grid Layout) -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-navy text-center mb-16">Everything Inside Your Audit Kit</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center mb-16">
+                <!-- Card 1 -->
+                <div class="crisp-card p-8 rounded-2xl bg-white shadow-sm flex flex-col items-center">
+                    <div class="w-12 h-12 bg-navy text-white rounded-lg flex items-center justify-center mb-6 shadow-md">
+                        <svg class="w-6 h-6 text-sky" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-navy mb-2">Metro 2 Audit Worksheet</h3>
+                    <p class="text-sm text-coolgray">Find the reporting errors bureaus hope you miss in balances and dates.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="crisp-card p-8 rounded-2xl bg-white shadow-sm flex flex-col items-center">
+                    <div class="w-12 h-12 bg-navy text-white rounded-lg flex items-center justify-center mb-6 shadow-md">
+                        <svg class="w-6 h-6 text-sky" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-navy mb-2">The 3-Step Letter System</h3>
+                    <p class="text-sm text-coolgray">Personal Info Sweep, Factual Dispute, and MOV Follow-up templates.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="crisp-card p-8 rounded-2xl bg-white shadow-sm flex flex-col items-center">
+                    <div class="w-12 h-12 bg-navy text-white rounded-lg flex items-center justify-center mb-6 shadow-md">
+                        <svg class="w-6 h-6 text-sky" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-navy mb-2">Secondary Bureau Scripts</h3>
+                    <p class="text-sm text-coolgray">Freeze the data trackers like SageStream and LexisNexis to cut off verification.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="crisp-card p-8 rounded-2xl bg-white shadow-sm flex flex-col items-center">
+                    <div class="w-12 h-12 bg-navy text-white rounded-lg flex items-center justify-center mb-6 shadow-md">
+                        <svg class="w-6 h-6 text-sky" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553 2.276A1 1 0 0120 13.17V17a2 2 0 01-2 2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-navy mb-2">Video Masterclass</h3>
+                    <p class="text-sm text-coolgray">Step-by-step guidance on how to mail, track, and manage your dispute flow.</p>
+                </div>
+            </div>
+
+            <!-- Urgent CTA Button -->
+            <div class="text-center">
+                <div class="inline-block relative">
+                    <a href="https://scorerisekit.com/audit-kit-checkout" class="inline-block bg-royal hover:bg-blue-700 text-white font-extrabold text-xl py-5 px-10 rounded-xl shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                        Unlock Your Audit Kit Now
+                    </a>
+                    <div class="absolute -top-3 -right-3 bg-red-600 text-white text-[10px] font-black px-2 py-1 rounded-full uppercase tracking-tighter animate-bounce">
+                        Limited Access
+                    </div>
+                </div>
+                <p class="mt-4 text-coolgray text-sm font-semibold italic">
+                    <span class="text-red-600 font-bold">Heads up:</span> This $47 special pricing is for current downloaders only.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: The "Relevance" Block -->
+    <section class="py-24 bg-navy text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Is the Score Rise Kit Right for You?</h2>
+                <p class="text-lg text-gray-400">Our system is engineered to challenge the most common reporting errors, including:</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center text-center p-6 bg-white/5 rounded-2xl border border-white/10">
+                    <svg class="w-10 h-10 text-sky mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                    <span class="font-bold">Collections</span>
+                </div>
+                <div class="flex flex-col items-center text-center p-6 bg-white/5 rounded-2xl border border-white/10">
+                    <svg class="w-10 h-10 text-sky mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span class="font-bold">Late Payments</span>
+                </div>
+                <div class="flex flex-col items-center text-center p-6 bg-white/5 rounded-2xl border border-white/10">
+                    <svg class="w-10 h-10 text-sky mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                    <span class="font-bold">Charge-Offs</span>
+                </div>
+                <div class="flex flex-col items-center text-center p-6 bg-white/5 rounded-2xl border border-white/10">
+                    <svg class="w-10 h-10 text-sky mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    <span class="font-bold">Medical Bills</span>
+                </div>
+                <div class="flex flex-col items-center text-center p-6 bg-white/5 rounded-2xl border border-white/10">
+                    <svg class="w-10 h-10 text-sky mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path></svg>
+                    <span class="font-bold">Student Loan Errors</span>
+                </div>
+                <div class="flex flex-col items-center text-center p-6 bg-white/5 rounded-2xl border border-white/10">
+                    <svg class="w-10 h-10 text-sky mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <span class="font-bold">Inaccurate Addresses</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: The Proof (Results Gallery) (Updated Text Only) -->
+    <section class="py-24 bg-lightgray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-navy text-center mb-4">Real Deletions. Real Results.</h2>
+            <p class="text-center text-coolgray mb-16">Results from individuals using the Strategic Auditing process.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1: Clifford -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full">
+                    <div class="flex text-sky mb-4">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    </div>
+                    <p class="text-navy font-bold text-lg mb-4 italic">"I went from the 500s to over 700. I finally bought my first home and a better credit card!"</p>
+                    <div class="mt-auto">
+                        <p class="text-xs font-bold text-navy uppercase">— Clifford</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2: Dashawanna -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full">
+                    <div class="flex text-sky mb-4">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    </div>
+                    <p class="text-navy font-bold text-lg mb-4 italic">"My score jumped to 750+. I got a better house and my insurance is way cheaper now."</p>
+                    <div class="mt-auto">
+                        <p class="text-xs font-bold text-navy uppercase">— Dashawanna</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3: Gozie -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full">
+                    <div class="flex text-sky mb-4">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    </div>
+                    <p class="text-navy font-bold text-lg mb-4 italic">"I saved $600 a month on my house payment and $4,000 when I bought it. Keji is the best!"</p>
+                    <div class="mt-auto">
+                        <p class="text-xs font-bold text-navy uppercase">— Gozie</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: The Transformation (Before vs After) -->
+    <section class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-navy mb-4">The Change You Will See</h2>
+                <p class="text-coolgray text-lg max-w-2xl mx-auto">Don't let money stress and low scores control your life and your future.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- Before Card -->
+                <div class="bg-red-50 p-8 sm:p-12 rounded-[40px] border border-red-100 shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4">
+                        <span class="bg-red-200 text-red-700 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">The Old Way</span>
+                    </div>
+                    <h4 class="text-2xl font-bold text-red-900 mb-8 pb-4 border-b border-red-200/50">Before The 100-Point Blitz:</h4>
+                    <ul class="space-y-6">
+                        <li class="flex items-start">
+                            <span class="text-red-500 mr-4 text-xl">✗</span>
+                            <p class="text-red-900/80 font-medium">Feeling nervous when you apply for a loan.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-500 mr-4 text-xl">✗</span>
+                            <p class="text-red-900/80 font-medium">Paying very high interest rates on everything.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-500 mr-4 text-xl">✗</span>
+                            <p class="text-red-900/80 font-medium">Getting "No" letters that make you feel bad.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-500 mr-4 text-xl">✗</span>
+                            <p class="text-red-900/80 font-medium">Stuck with "secured" cards and high annual fees.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-500 mr-4 text-xl">✗</span>
+                            <p class="text-red-900/80 font-medium">Old bills that won't go away from your report.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- After Card -->
+                <div class="bg-navy p-8 sm:p-12 rounded-[40px] shadow-2xl relative overflow-hidden text-white">
+                    <div class="absolute top-0 right-0 p-4">
+                        <span class="bg-sky/20 text-sky text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">The New Way</span>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-8 pb-4 border-b border-white/10">After The 100-Point Blitz:</h4>
+                    <ul class="space-y-6">
+                        <li class="flex items-start">
+                            <span class="text-sky mr-4 text-xl">✓</span>
+                            <p class="text-gray-300 font-medium">Watching your score jump up 100 points fast.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-sky mr-4 text-xl">✓</span>
+                            <p class="text-gray-300 font-medium">Saving thousands of dollars on your next car.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-sky mr-4 text-xl">✓</span>
+                            <p class="text-gray-300 font-medium">Ditching the bad cards for a "real" high-limit card.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-sky mr-4 text-xl">✓</span>
+                            <p class="text-gray-300 font-medium">Using your cards the right way to keep the score high.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-sky mr-4 text-xl">✓</span>
+                            <p class="text-gray-300 font-medium">Erasing old collection accounts forever.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Transformation CTA -->
+            <div class="mt-16 text-center">
+                <a href="https://scorerisekit.com/audit-kit-checkout" class="inline-block bg-navy hover:bg-black text-white font-black text-xl py-6 px-12 rounded-full shadow-xl transition-all duration-300 transform hover:scale-105">
+                    START YOUR CREDIT FREEDOM PATH
+                </a>
+                <div class="mt-6">
+                    <span class="bg-red-50 text-red-600 border border-red-100 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest">
+                        Limited Time Offer <span class="text-coolgray line-through ml-2">Regular $97</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: The "Instant Delivery" Block -->
+    <section class="py-16 bg-lightgray border-y border-gray-100">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <div class="inline-flex items-center justify-center w-12 h-12 bg-sky/10 text-sky rounded-full mb-6">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"></path></svg>
+            </div>
+            <h2 class="text-2xl font-bold text-navy mb-4">Instant Digital Access</h2>
+            <p class="text-coolgray leading-relaxed max-w-2xl mx-auto">
+                No waiting for the mail. As soon as you complete your order, you will receive an email with your secure login to the training portal and download links for the full kit.
+            </p>
+        </div>
+    </section>
+
+    <!-- Section 5: Final Value Stack & Pricing -->
+    <section id="pricing" class="py-24 bg-white">
+        <div class="max-w-xl mx-auto px-4">
+            <div class="bg-white rounded-3xl border-2 border-navy p-10 shadow-2xl relative overflow-hidden text-center">
+                <!-- Money Back Badge inside card -->
+                <div class="absolute -top-1 -left-1">
+                    <div class="bg-navy text-white text-[10px] font-bold px-3 py-1 rounded-br-xl uppercase tracking-widest shadow-sm">
+                        30-Day Money Back
+                    </div>
+                </div>
+
+                <h2 class="text-2xl font-bold text-navy mb-8 uppercase tracking-widest">Everything You Need to Fix Your Credit for $47</h2>
+                
+                <ul class="text-left space-y-4 mb-10">
+                    <li class="flex justify-between items-center text-navy font-medium">
+                        <span>Metro 2 Audit Worksheet</span>
+                        <span class="value-tag">$97 Value</span>
+                    </li>
+                    <li class="flex justify-between items-center text-navy font-medium">
+                        <span>3-Step Legal Dispute Letters</span>
+                        <span class="value-tag">$147 Value</span>
+                    </li>
+                    <li class="flex justify-between items-center text-navy font-medium">
+                        <span>Secondary Bureau Freeze Scripts</span>
+                        <span class="value-tag">$47 Value</span>
+                    </li>
+                    <li class="flex justify-between items-center text-navy font-medium">
+                        <span>Video Training Masterclass</span>
+                        <span class="value-tag">$197 Value</span>
+                    </li>
+                </ul>
+
+                <div class="border-t border-gray-100 pt-8 mb-8">
+                    <p class="text-coolgray line-through text-lg font-bold">Total Value: $488</p>
+                    <p class="text-navy text-5xl font-extrabold mt-2">Today: $47</p>
+                    <p class="text-xs font-bold text-royal mt-4 uppercase tracking-widest animate-pulse italic">Special Price Today Only</p>
+                </div>
+
+                <a href="https://scorerisekit.com/audit-kit-checkout" class="w-full inline-block bg-royal hover:bg-blue-700 text-white font-bold text-xl py-5 rounded-xl shadow-lg transition-all duration-300 transform hover:scale-[1.02] text-center">
+                    Get Instant Access to the Full Kit
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Frequently Asked Questions (Condensed/Simple) -->
+    <section class="py-24 bg-lightgray border-y border-gray-200">
+        <div class="max-w-3xl mx-auto px-4">
+            <h2 class="text-4xl font-extrabold text-navy text-center mb-12 tracking-tight">Common Questions</h2>
+            
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden group">
+                    <button class="w-full p-6 text-left flex justify-between items-center font-bold text-navy" onclick="this.parentElement.classList.toggle('active')">
+                        <span>Is this just normal advice like "pay your bills"?</span>
+                        <svg class="w-5 h-5 text-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content">
+                        <div class="p-6 pt-0 text-coolgray border-t border-gray-50 leading-relaxed">
+                            No. This is about secret rules that banks use. Most people don't know these tricks. We show you how the credit game really works.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden group">
+                    <button class="w-full p-6 text-left flex justify-between items-center font-bold text-navy" onclick="this.parentElement.classList.toggle('active')">
+                        <span>Can my score really go up 100 points in one month?</span>
+                        <svg class="w-5 h-5 text-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content">
+                        <div class="p-6 pt-0 text-coolgray border-t border-gray-50 leading-relaxed">
+                            Yes. If you follow our steps in the right order, big jumps happen fast. We've seen it happen many times.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden group">
+                    <button class="w-full p-6 text-left flex justify-between items-center font-bold text-navy" onclick="this.parentElement.classList.toggle('active')">
+                        <span>I already paid old bills, but they are still there. Can you help?</span>
+                        <svg class="w-5 h-5 text-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content">
+                        <div class="p-6 pt-0 text-coolgray border-t border-gray-50 leading-relaxed">
+                            Yes. Just paying doesn't always clean your report. We show you how to make those old marks disappear for good.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden group">
+                    <button class="w-full p-6 text-left flex justify-between items-center font-bold text-navy" onclick="this.parentElement.classList.toggle('active')">
+                        <span>Do I have to pay every month?</span>
+                        <svg class="w-5 h-5 text-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content">
+                        <div class="p-6 pt-0 text-coolgray border-t border-gray-50 leading-relaxed">
+                            No. This is a one-time payment of $47. You own the kit forever. There are no hidden fees or monthly charges.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Final FAQ CTA -->
+            <div class="mt-12 text-center">
+                <a href="https://scorerisekit.com/audit-kit-checkout" class="inline-block bg-navy hover:bg-black text-white font-bold py-4 px-8 rounded-xl shadow-lg transition-all duration-300">
+                    GET THE AUDIT KIT NOW
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. THE 200% IRON-CLAD GUARANTEE (ADD TO BOTTOM) -->
+    <section class="py-24 bg-lightgray border-y border-gray-200">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <div class="inline-flex items-center justify-center w-24 h-24 bg-royal text-white rounded-full mb-8 shadow-2xl border-4 border-white">
+                <span class="text-3xl font-black">200%</span>
+            </div>
+            <h2 class="text-4xl font-extrabold text-navy mb-6 tracking-tight">The 200% Iron-Clad Guarantee.</h2>
+            <p class="text-xl text-coolgray leading-relaxed max-w-2xl mx-auto font-medium">
+                If this kit does not work, I don't want your money. If you don't see results in 60 days, I will give you double your money back. I am taking all the risk for you.
+            </p>
+        </div>
+    </section>
+
+    <!-- Section 6: Existing 30-Day Guarantee -->
+    <section class="py-20 bg-navy text-white text-center">
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="inline-flex items-center justify-center w-20 h-20 bg-white/10 rounded-full mb-8">
+                <svg class="w-10 h-10 text-sky" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+            </div>
+            <h2 class="text-3xl font-bold mb-6">30-Day Peace of Mind Guarantee</h2>
+            <p class="text-lg text-gray-400 leading-relaxed max-w-2xl mx-auto">
+                If these aren't the most professional, high-grade credit tools you've ever used, just email us within 30 days and we'll give you every penny back. No questions asked.
+            </p>
+        </div>
+    </section>
+
+    <!-- Detailed Professional Footer -->
+    <footer class="py-16 bg-white border-t border-gray-100">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            
+            <!-- Quick Links -->
+            <div class="flex flex-wrap justify-center gap-6 mb-8 text-[10px] font-extrabold text-coolgray uppercase tracking-widest">
+                <a href="#" class="hover:text-royal transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-royal transition-colors">Terms & Conditions</a>
+                <a href="#" class="hover:text-navy transition-colors">Support</a>
+            </div>
+
+            <!-- Brand Copyright -->
+            <div class="text-[11px] font-bold text-navy/60 mb-10 tracking-wider">
+                COPYRIGHT 2026 | SCORE RISE KIT | ALL RIGHTS RESERVED
+            </div>
+
+            <!-- Disclaimers Block -->
+            <div class="space-y-6 text-[10px] leading-relaxed text-coolgray/80 max-w-3xl mx-auto">
+                <p>
+                    <strong class="text-navy/40">RESULTS DISCLAIMER:</strong> 
+                    Please understand that results from using the Score Rise Kit are not typical and will vary based on many factors. Your background, credit history, and commitment level play a big role in your success. All credit repair strategies require consistent effort, proper auditing, and specific action to see meaningful score changes.
+                </p>
+                <p>
+                    <strong class="text-navy/40">LEGAL DISCLAIMER:</strong> 
+                    Nothing on this page, or any of our websites, content, or curriculum is a promise or guarantee of specific results or future credit scores. We do not offer legal, financial, or tax advice. We are not a law firm or a credit repair organization. You are responsible and accountable for your own decisions, actions, and results in life.
+                </p>
+                <p>
+                    <strong class="text-navy/40">SOCIAL NOTICE:</strong> 
+                    This site is not a part of the Facebook™ website or Facebook Inc. Additionally, this site is NOT endorsed by Facebook™ in any way. FACEBOOK is a trademark of FACEBOOK, Inc.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Hero Video Logic
+        function toggleHeroVideo() {
+            const video = document.getElementById('heroVideo');
+            const overlay = document.getElementById('playOverlay');
+            if (video.paused) {
+                video.play();
+                overlay.style.opacity = '0';
+                overlay.style.pointerEvents = 'none';
+            } else {
+                video.pause();
+                overlay.style.opacity = '1';
+                overlay.style.pointerEvents = 'auto';
+            }
+        }
+
+        // FAQ Toggle logic
+        document.querySelectorAll('.faq-item button').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
