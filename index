@@ -1,102 +1,332 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Download: The Credit War Map</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0f172a; 
-            background-image: radial-gradient(circle at top, #1e293b 0%, #0f172a 100%);
-        }
-        input::placeholder { color: #94a3b8; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ScoreRiseKit — Credit Education & Credit Improvement Resources</title>
+<meta name="description" content="ScoreRiseKit, a brand of Ascension Homes LLC, provides digital credit education resources including audit worksheets, dispute letter templates, and video training for consumers who want to fix their own credit.">
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', -apple-system, sans-serif; color: #374151; background: #fff; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; display: block; }
+a { color: #2563EB; text-decoration: none; font-weight: 600; }
+a:hover { text-decoration: underline; }
+p { margin-bottom: 1rem; }
+strong { color: #0D1B3E; font-weight: 700; }
+h1, h2, h3 { font-weight: 800; color: #0D1B3E; letter-spacing: -0.025em; line-height: 1.1; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); }
+h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
+h3 { font-size: 1.2rem; font-weight: 700; }
+
+.container { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
+.narrow { max-width: 720px; margin: 0 auto; }
+.text-center { text-align: center; }
+
+.site-header { background: white; border-bottom: 1px solid #E5E7EB; }
+.nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+.brand { text-decoration: none; }
+.brand-name { font-size: 1.45rem; font-weight: 900; color: #0D1B3E; letter-spacing: -0.03em; }
+.brand-name .dot { color: #2563EB; }
+.brand-sub { font-size: 0.6rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; color: #6B7280; margin-top: 3px; }
+.nav-links { display: flex; align-items: center; gap: 1.75rem; list-style: none; }
+.nav-links a { color: #0D1B3E; font-weight: 600; font-size: 0.92rem; }
+.nav-links a:hover { color: #2563EB; text-decoration: none; }
+.nav-cta { background: #2563EB; color: white !important; padding: 10px 20px; border-radius: 8px; font-size: 0.88rem; }
+.nav-cta:hover { background: #1D4ED8; text-decoration: none !important; }
+
+.hero { background: #fff; padding: 5rem 0 4rem; }
+.hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center; }
+.hero h1 { margin-bottom: 1.25rem; }
+.hero .lead { font-size: 1.1rem; color: #6B7280; max-width: 52ch; margin-bottom: 2rem; line-height: 1.55; }
+.btn { display: inline-block; padding: 15px 30px; border-radius: 10px; font-weight: 700; font-size: 1rem; text-align: center; cursor: pointer; transition: all 0.15s; letter-spacing: -0.01em; }
+.btn-blue { background: #2563EB; color: white; box-shadow: 0 6px 18px -4px rgba(37,99,235,0.45); }
+.btn-blue:hover { background: #1D4ED8; color: white; text-decoration: none; transform: translateY(-2px); }
+.hero-meta { display: flex; gap: 1.25rem; margin-top: 1.25rem; flex-wrap: wrap; font-size: 0.85rem; color: #6B7280; font-weight: 500; }
+.hero-meta span::before { content: "✓ "; color: #10B981; font-weight: 700; }
+
+.hero-card { background: linear-gradient(135deg, #0D1B3E 0%, #1E3A8A 100%); border-radius: 24px; padding: 3rem 2rem; color: white; text-align: center; box-shadow: 0 30px 60px -20px rgba(13,27,62,0.4); }
+.hero-card .icon-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+.hero-card .icon-box { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 1.25rem 0.75rem; }
+.hero-card .icon-box .ic { font-size: 1.8rem; margin-bottom: 0.5rem; }
+.hero-card .icon-box .label { font-size: 0.78rem; font-weight: 700; color: rgba(255,255,255,0.85); }
+.hero-card-title { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em; color: #93C5FD; margin-bottom: 1rem; }
+.hero-card h3 { color: white; font-size: 1.5rem; margin-bottom: 0.5rem; }
+.hero-card p { color: rgba(255,255,255,0.7); font-size: 0.92rem; margin: 0; }
+
+section { padding: 5rem 0; }
+.bg-soft { background: #F8F9FA; }
+.section-label { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: #2563EB; margin-bottom: 0.75rem; display: block; }
+.section-head { text-align: center; margin-bottom: 3rem; }
+.section-head h2 { margin-bottom: 0.75rem; }
+.section-head p { color: #6B7280; font-size: 1.05rem; max-width: 52ch; margin: 0 auto; }
+
+.service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+.service-card { background: white; border: 1px solid #E5E7EB; border-radius: 14px; padding: 1.75rem 1.5rem; transition: transform 0.2s, box-shadow 0.2s; }
+.service-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px -16px rgba(0,0,0,0.12); }
+.service-icon { width: 52px; height: 52px; background: #DBEAFE; color: #2563EB; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; }
+.service-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+.service-card p { font-size: 0.9rem; color: #6B7280; margin: 0; line-height: 1.5; }
+
+.steps-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+.step-card { position: relative; padding-top: 1rem; }
+.step-num { width: 44px; height: 44px; background: #2563EB; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; margin-bottom: 1rem; box-shadow: 0 6px 16px -4px rgba(37,99,235,0.4); }
+.step-card h3 { font-size: 1rem; margin-bottom: 6px; }
+.step-card p { font-size: 0.9rem; color: #6B7280; margin: 0; }
+
+.info-block { background: white; border: 1px solid #E5E7EB; border-radius: 14px; padding: 2rem; }
+.info-table { width: 100%; border-collapse: collapse; }
+.info-table td { padding: 13px 0; border-bottom: 1px solid #E5E7EB; font-size: 0.95rem; }
+.info-table tr:last-child td { border-bottom: 0; }
+.info-table td:first-child { font-weight: 700; width: 35%; color: #6B7280; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; }
+
+.notice { background: #EFF6FF; border-left: 4px solid #2563EB; padding: 1.25rem 1.5rem; border-radius: 0 10px 10px 0; margin: 2rem 0; }
+.notice h3 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.12em; color: #2563EB; margin-bottom: 8px; }
+.notice p { margin-bottom: 0; font-size: 0.95rem; color: #374151; }
+
+.faq-list { display: flex; flex-direction: column; gap: 10px; }
+.faq { background: white; border: 1px solid #E5E7EB; border-radius: 10px; }
+.faq[open] { border-color: #2563EB; }
+.faq summary { cursor: pointer; padding: 1.1rem 1.5rem; font-size: 0.98rem; font-weight: 600; color: #0D1B3E; display: flex; justify-content: space-between; align-items: center; list-style: none; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font-size: 1.4rem; color: #2563EB; font-weight: 400; }
+.faq[open] summary::after { content: "−"; }
+.faq-body { padding: 0 1.5rem 1.25rem; font-size: 0.94rem; color: #374151; }
+.faq-body p { margin-bottom: 0; }
+
+.cta-band { background: #0D1B3E; padding: 4.5rem 0; text-align: center; position: relative; overflow: hidden; }
+.cta-band::before { content: ""; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(37,99,235,0.2) 0%, transparent 65%); pointer-events: none; }
+.cta-band > .container { position: relative; }
+.cta-band h2 { color: white; margin-bottom: 1rem; }
+.cta-band p { color: rgba(255,255,255,0.75); max-width: 52ch; margin: 0 auto 1.75rem; font-size: 1.05rem; }
+
+.site-footer { background: #050B16; padding: 3.5rem 0 1.5rem; color: rgba(255,255,255,0.7); }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 3rem; margin-bottom: 2.5rem; }
+.footer-brand .brand-name { color: white; font-size: 1.3rem; }
+.footer-brand p { font-size: 0.88rem; color: rgba(255,255,255,0.55); margin-top: 0.75rem; line-height: 1.6; }
+.footer-col h4 { color: white; font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 1rem; }
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 9px; }
+.footer-col a { color: rgba(255,255,255,0.6); font-size: 0.9rem; font-weight: 500; }
+.footer-col a:hover { color: white; text-decoration: none; }
+.dba { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 1.25rem 1.5rem; font-size: 0.82rem; line-height: 1.7; color: rgba(255,255,255,0.55); margin: 1.5rem 0; }
+.dba strong { color: white; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.82rem; color: rgba(255,255,255,0.45); }
+.footer-bottom a { color: rgba(255,255,255,0.6); }
+
+@media (max-width: 880px) {
+  section { padding: 3rem 0; }
+  .hero { padding: 3rem 0; }
+  .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .steps-row { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .nav-links { gap: 1rem; font-size: 0.85rem; }
+  .nav-links li:nth-child(2), .nav-links li:nth-child(3) { display: none; }
+}
+@media (max-width: 520px) {
+  .steps-row { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; }
+}
+</style>
 </head>
-<body class="text-slate-100 antialiased min-h-screen flex flex-col items-center justify-start p-4 md:p-8">
+<body>
 
-    <div class="max-w-5xl w-full mx-auto">
-        
-        <header class="text-center mb-10 pt-8">
-            <h1 class="text-4xl md:text-[3.25rem] font-bold text-white leading-[1.15] tracking-tight mb-8">
-                <span class="text-[#5A8EE5]">FREE DOWNLOAD:</span><br />
-                The "Credit War Map" &ndash;<br class="hidden md:block"/>
-                Advanced Tactics To Delete<br class="hidden md:block"/>
-                Negatives &amp; Rebuild A 750+<br class="hidden md:block"/>
-                Profile
-            </h1>
-            <p class="text-[17px] md:text-[19px] text-slate-300 max-w-3xl mx-auto leading-snug">
-                Stop "Disputing" and Start Auditing. Learn the <strong class="font-bold text-white">"Dark Freeze"</strong> method to blind<br class="hidden md:block"/>
-                the Big 3 bureaus and prevent automated verification.
-            </p>
-        </header>
+<header class="site-header">
+<div class="container nav">
+  <a href="#" class="brand">
+    <div class="brand-name">ScoreRiseKit<span class="dot">.</span></div>
+    <div class="brand-sub">A brand of Ascension Homes LLC</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#what-we-offer">What We Offer</a></li>
+    <li><a href="#how-it-works">How It Works</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</div>
+</header>
 
-        <div class="max-w-md mx-auto bg-slate-800/50 p-8 rounded-2xl border border-slate-700 shadow-2xl mb-16">
-            
-            <form id="sib-form" method="POST" action="https://6944df44.sibforms.com/serve/MUIFAPWHUXhPyOSnq4VDQ5drJiJkcQE9szKbPupQWMlyJocRkBaVb6Meys_RYGpFyLgdtEL3ybPtfGwb4FgTYMxQMpe3P5WRbqJ0LtVO6DineX_b1PSYal1roAG5fBtqlpLFJtAmTo1dzvTNWipEvJ4SN5QVvJthdBbq0jUjENNxX6BdKDhKQ3XXtQ2n38T61OeSPrbC0sA8J2dYiQ==" data-type="subscription">
-                
-                <div class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-medium text-slate-400 mb-1">First Name</label>
-                        <input type="text" name="FIRSTNAME" id="FIRSTNAME" required 
-                            class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-[#5A8EE5] transition-all"
-                            placeholder="Enter your first name">
-                    </div>
-
-                    <div>
-                        <label class="block text-sm font-medium text-slate-400 mb-1">Email Address</label>
-                        <input type="email" name="EMAIL" id="EMAIL" required 
-                            class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-[#5A8EE5] transition-all"
-                            placeholder="Enter your best email">
-                    </div>
-
-                    <div>
-                        <label class="block text-sm font-medium text-slate-400 mb-1">Mobile Phone (Optional)</label>
-                        <div class="flex gap-2">
-                            <select name="SMS__COUNTRY_CODE" class="bg-slate-900 border border-slate-700 rounded-lg px-2 py-3 text-white text-xs w-24">
-                                <option value="+1" selected>+1 US</option>
-                                <option value="+34">+34 ES</option>
-                            </select>
-                            <input type="text" name="SMS" id="SMS"
-                                class="flex-1 bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-[#5A8EE5] transition-all"
-                                placeholder="Phone number">
-                        </div>
-                    </div>
-
-                    <button type="submit" 
-                        class="w-full bg-[#3b82f6] hover:bg-blue-600 text-white font-extrabold py-4 rounded-lg text-lg tracking-wide uppercase transition-all shadow-lg hover:scale-[1.02] active:scale-[0.98]">
-                        Get The Free Download
-                    </button>
-                </div>
-
-                <p class="text-center text-xs text-slate-500 mt-4 italic">
-                    Instant Access • 100% Free • No Credit Card Required
-                </p>
-            </form>
-        </div>
-
-        <footer class="pt-8 pb-12 text-center text-slate-500 text-xs max-w-4xl mx-auto border-t border-slate-800">
-            <p class="mb-4 text-[10px] uppercase tracking-widest text-slate-600 font-bold">Legal Information</p>
-            <p class="mb-4 leading-relaxed">Legal Disclaimer: This information is for educational purposes only and does not constitute legal advice. Every case is different, and past results do not guarantee future outcomes.</p>
-            
-            <p class="mb-6 text-slate-600 leading-relaxed">
-                This site is not a part of the Facebook website or Facebook Inc. Additionally, This site is NOT endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc.
-            </p>
-            
-            <div class="flex items-center justify-center gap-4 mb-6 text-slate-400">
-                <a href="#" class="hover:text-white transition-colors underline decoration-slate-700">Privacy Policy</a>
-                <span>|</span>
-                <a href="#" class="hover:text-white transition-colors underline decoration-slate-700">Terms of Service</a>
-                <span>|</span>
-                <a href="#" class="hover:text-white transition-colors underline decoration-slate-700">Contact Us</a>
-            </div>
-            
-            <p class="text-slate-600">&copy; 2026 Credit War Map. All Rights Reserved.</p>
-        </footer>
-
+<section class="hero">
+<div class="container hero-grid">
+  <div>
+    <span class="section-label">Credit Education Resources</span>
+    <h1>Take control of your credit. Without paying an agency thousands.</h1>
+    <p class="lead">ScoreRiseKit provides downloadable worksheets, dispute letter templates, and video training that teach consumers how to challenge inaccurate items on their own credit reports — using their rights under federal law.</p>
+    <a href="#contact" class="btn btn-blue">Get In Touch →</a>
+    <div class="hero-meta">
+      <span>One-time purchase</span>
+      <span>Lifetime access</span>
+      <span>No monthly fees</span>
     </div>
+  </div>
+  <div class="hero-card">
+    <div class="hero-card-title">Everything Inside</div>
+    <h3>The Score Rise Kit</h3>
+    <p>Digital education product. Instant access.</p>
+    <div class="icon-grid">
+      <div class="icon-box"><div class="ic">📋</div><div class="label">Audit Worksheet</div></div>
+      <div class="icon-box"><div class="ic">✉️</div><div class="label">Letter Scripts</div></div>
+      <div class="icon-box"><div class="ic">🎯</div><div class="label">Bureau Scripts</div></div>
+      <div class="icon-box"><div class="ic">🎬</div><div class="label">Video Training</div></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="bg-soft" id="what-we-offer">
+<div class="container">
+  <div class="section-head">
+    <span class="section-label">What We Offer</span>
+    <h2>A complete credit education kit.</h2>
+    <p>ScoreRiseKit is a digital education product. It teaches you how the dispute process works and gives you the exact tools to do it yourself.</p>
+  </div>
+  <div class="service-grid">
+    <div class="service-card">
+      <div class="service-icon">📋</div>
+      <h3>Metro 2 Audit Worksheet</h3>
+      <p>A step-by-step worksheet that walks you through every section of your credit report to find reporting errors that are actually disputable.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">✉️</div>
+      <h3>3-Step Letter Scripts</h3>
+      <p>Editable letter templates for personal info disputes, factual disputes, and method-of-verification requests — sent to bureaus in the correct order.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🎯</div>
+      <h3>Secondary Bureau Scripts</h3>
+      <p>Scripts and contact info for the secondary credit bureaus (SageStream, LexisNexis, ARS, Innovis, CoreLogic) that lenders also check.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🎬</div>
+      <h3>Video Masterclass</h3>
+      <p>Step-by-step video training that walks you through every worksheet, every script, and every step. Lifetime access, watch anytime.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="how-it-works">
+<div class="container">
+  <div class="section-head">
+    <span class="section-label">How It Works</span>
+    <h2>From purchase to first results.</h2>
+  </div>
+  <div class="steps-row">
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <h3>Get the Kit</h3>
+      <p>One-time purchase. Login details are emailed to you instantly.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">2</div>
+      <h3>Pull Your Reports</h3>
+      <p>Free at AnnualCreditReport.com. The kit shows you what to download.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">3</div>
+      <h3>Run the Audit</h3>
+      <p>Use the Metro 2 worksheet to identify items worth disputing.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">4</div>
+      <h3>Send the Letters</h3>
+      <p>Use the scripts in the right order. Mail, track responses, repeat.</p>
+    </div>
+  </div>
+  <div class="notice">
+    <h3>An honest note about results</h3>
+    <p>ScoreRiseKit is an educational product. We don't guarantee any specific score change, removal of any item, or approval for any loan. Accurate, timely, and verifiable information generally cannot be removed from a credit report. Individual results vary based on what's actually on your report and how the bureaus respond.</p>
+  </div>
+</div>
+</section>
+
+<section class="bg-soft" id="about">
+<div class="container">
+  <div class="section-head">
+    <span class="section-label">About Us</span>
+    <h2>A Maryland business with one mission.</h2>
+    <p>Put consumers back in control of their credit — without a $1,800 agency contract or monthly subscription.</p>
+  </div>
+  <div class="narrow">
+    <p>ScoreRiseKit is the credit education brand of <strong>Ascension Homes LLC</strong>, a Maryland limited liability company based in Bowie, MD. We build downloadable worksheets, dispute letter templates, and training resources for consumers who want to fix their own credit.</p>
+    <p>We are <strong>not</strong> a law firm, credit bureau, lender, or credit repair agency that acts on your behalf. We don't pull credit reports. We don't mail letters for you. We don't have a client portal. The kit teaches you how to do it yourself using your rights under federal law.</p>
+    <div class="info-block" style="margin-top: 2rem;">
+      <table class="info-table">
+        <tr><td>Legal Name</td><td>Ascension Homes LLC</td></tr>
+        <tr><td>Doing Business As</td><td>ScoreRiseKit</td></tr>
+        <tr><td>Entity Type</td><td>Limited Liability Company</td></tr>
+        <tr><td>Formed In</td><td>State of Maryland, USA</td></tr>
+        <tr><td>Headquarters</td><td>Bowie, Maryland, USA</td></tr>
+        <tr><td>Contact</td><td><a href="mailto:support@scorerisekit.com">support@scorerisekit.com</a></td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+</section>
+
+<section>
+<div class="container narrow">
+  <div class="section-head">
+    <span class="section-label">FAQ</span>
+    <h2>Common Questions</h2>
+  </div>
+  <div class="faq-list">
+    <details class="faq"><summary>What is the Score Rise Kit?</summary><div class="faq-body"><p>It's a digital education product: a Metro 2 audit worksheet, three dispute letter script templates, secondary bureau scripts, and a video masterclass — delivered instantly after purchase. One-time purchase with lifetime access. Not a subscription.</p></div></details>
+    <details class="faq"><summary>Do you file disputes on my behalf?</summary><div class="faq-body"><p>No. The kit teaches you how to do it yourself using your rights under the Fair Credit Reporting Act. You mail the letters, you track responses, you own the process.</p></div></details>
+    <details class="faq"><summary>Do you guarantee a specific score increase?</summary><div class="faq-body"><p>No. By federal law, no one can guarantee specific credit results. Results depend entirely on what's on your report and how the bureaus and furnishers respond to your disputes.</p></div></details>
+    <details class="faq"><summary>How will you contact me?</summary><div class="faq-body"><p>If you purchase, we'll send you transactional emails about your order, product access, and account. If you opt in to SMS through our forms, we'll also text you about order updates, customer support, and occasional product news. Message frequency varies. Message and data rates may apply. Reply STOP to opt out at any time. Reply HELP for support.</p></div></details>
+    <details class="faq"><summary>Will my phone number be shared?</summary><div class="faq-body"><p>No. Mobile information (including phone numbers and SMS opt-in data) is never shared with third parties or affiliates for marketing or promotional purposes. Full details in our <a href="#contact">privacy practices</a>.</p></div></details>
+  </div>
+</div>
+</section>
+
+<section class="cta-band" id="contact">
+<div class="container">
+  <span class="section-label" style="color: #93C5FD;">Get In Touch</span>
+  <h2>Questions? Want the kit? Need support?</h2>
+  <p>Email us. We reply within one business day, Monday through Friday.</p>
+  <a href="mailto:support@scorerisekit.com" class="btn btn-blue">support@scorerisekit.com</a>
+</div>
+</section>
+
+<footer class="site-footer">
+<div class="container">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="brand-name">ScoreRiseKit<span class="dot" style="color: #2563EB;">.</span></div>
+      <p>Credit education and credit improvement resources for consumers who want to understand and take control of their credit.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Site</h4>
+      <ul>
+        <li><a href="#what-we-offer">What We Offer</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:support@scorerisekit.com">support@scorerisekit.com</a></li>
+        <li>Bowie, Maryland, USA</li>
+        <li>Mon–Fri, 9 AM – 6 PM Eastern</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="dba">
+    <strong>ScoreRiseKit</strong> is a brand of <strong>Ascension Homes LLC</strong>, a Maryland limited liability company located in Bowie, MD. ScoreRiseKit provides credit education and credit improvement resources. ScoreRiseKit is not a law firm, lender, or credit bureau, and does not provide legal, tax, or financial advice. No mobile information or SMS opt-in data is shared with third parties or affiliates for marketing purposes. Individual results vary; no specific outcome is guaranteed.
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2026 Ascension Homes LLC. All rights reserved.</span>
+    <span>Bowie, MD · <a href="mailto:support@scorerisekit.com">support@scorerisekit.com</a></span>
+  </div>
+</div>
+</footer>
 
 </body>
 </html>
